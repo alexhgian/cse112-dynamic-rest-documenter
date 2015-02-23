@@ -18,20 +18,9 @@
       <div class="row">
          <div class="col-sm-2">
             <ul class="nav nav-pills nav-stacked">
-               <li role="presentation" class="">
+               <li role="presentation">
                   <a href="#" ng-click="pageSelect=pages[0]"><strong>Business</strong></a>
                </li>
-               <!--           <li class="small" role="presentation">
-  <a href="#">View Business Configuration</a>
-</li>
-<li class="small" role="presentation">
-  <a href="#">Update/Modify Business Configuration</a>
-</li>
-<li class="small" role="presentation">
-  <a href="#">Sign-up Business</a>
-</li> -->
-
-
                <li role="presentation">
                   <a href="#" ng-click="pageSelect=pages[1]"><strong>Employee</strong></a>
                </li>
@@ -46,6 +35,9 @@
                </li>
                <li role="presentation">
                   <a href="#" ng-click="pageSelect=pages[5]"><strong>Authentication</strong></a>
+               </li>
+               <li role="presentation">
+                  <a href="#" ng-click="pageSelect=pages[6]"><strong>JSON Generator</strong></a>
                </li>
             </ul>
          </div>
@@ -75,8 +67,12 @@
                <div ng-switch-when="authPage">
                   <div ng-controller="authCtrl" ng-include="'template.html'"></div>
                </div>
+               
+               <div ng-switch-when="genPage">
+                  <div ng-controller="genCtrl" ng-include="'generator.html'"></div>
+               </div>
                <div ng-switch-default>
-                 
+                  <div ng-controller="businessPage" ng-include="'template.html'"></div>
                </div>
 
             </div>
