@@ -1,0 +1,53 @@
+<div ng-repeat="res in resource">
+  <h2>{{res.header}}</h2>
+<hr/>
+<p>{{res.description}}</p>
+
+<div class="url"><span class="method" ng-class="res.method">{{res.method}}</span>{{res.uri}}</div>
+
+<span class="pre_header resp">Example Request</span>
+<pre>{{res.request | json}}</pre>
+
+<span class="pre_header resp">REQUIRED REQUEST PARAMETERS</span>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="param in res.reqParam">
+      <td><code>{{param[0]}}</code>
+      </td>
+      <td>{{param[1]}}</td>
+      <td>{{param[2]}}</td>
+    </tr>
+  </tbody>
+</table>
+
+<span class="pre_header resp">EXAMPLE RESPONSE</span>
+<pre>{{res.response | json}}</pre>
+
+
+<span class="pre_header resp">Response PARAMETERS</span>
+<table class="table table-bordered">
+  <thead>
+    <tr>
+      <th>Name</th>
+      <th>Type</th>
+      <th>Description</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr ng-repeat="param in res.resParam">
+      <td><code>{{param[0]}}</code>
+      </td>
+      <td>{{param[1]}}</td>
+      <td>{{param[2]}}</td>
+    </tr>
+  </tbody>
+</table>
+<br>
+</div>

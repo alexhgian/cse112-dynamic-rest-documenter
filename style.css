@@ -1,0 +1,114 @@
+      body {
+        padding-top: 60px;
+        padding-bottom: 40px;
+     }
+.home 
+{
+    background-image: url("/apiv2/assets/img/dev-background.png");
+    background-position: 0 40px;
+    background-repeat: repeat-x;      
+}
+      .sidebar-nav {
+        padding: 9px 0;
+      }
+.nav-restapi li a {padding-left:25px; font-size:11px}
+.nav-htmlapi li a {padding-left:25px; font-size:11px}
+.nav-sub {display:none}
+
+.nav-restapi .nav-header {cursor:pointer; text-transform:none;}
+.nav-restapi .nav-header:hover 
+{
+    text-decoration:underline;
+}
+.code-xml {display:none}
+#sidenav {position:fixed;width:210px; display:block;}
+#content_holder {padding-left:220px;width:98%;padding-right:20px;}
+
+.pre_header {text-transform:uppercase; color: #6e6e6e; font-weight: bold; display:block; margin-bottom:5px; }
+
+div.url{
+  padding: 8px;
+  font-family: Menlo, Monaco, "Courier New", monospace;
+  -webkit-border-radius: 3px;
+  -moz-border-radius: 3px;
+  border-radius: 3px;
+ 
+  color: #000;
+  background-color: #F7F7F9;
+  border: 1px solid #e1e1e8;
+  margin-bottom:15px;
+  margin-top:10px;
+}
+div.url > .method{display:inline-block;width:52px;text-align:center;padding:0 4px;margin-right:8px;border-radius:3px;padding:2px}
+div.url .GET{background-color:#DFF0D8;color:#468847;border:#D6E9C6 1px solid}
+div.url .POST{background-color:#D9EDF7;color:#3A87AD;border:#BCE8F1 1px solid}
+div.url .PUT{background-color:#FCF8E3;color:#C09853;border:#FBEED5 1px solid}
+div.url .DELETE{background-color:#F2DEDE;color:#B94A48;border:#EED3D7 1px solid}
+
+.masthead .inner {width:600px; display: inline-block}
+.masthead h1 {
+    font-size: 30px;
+    line-height: 36px;
+    margin-left: 5%;
+    margin-right: 5%;
+    padding-top:20px;
+    padding-bottom:55px;
+    
+}
+.api-options 
+{
+    width:700px; 
+    display: inline-block;
+    
+}
+.api-options .span6 
+{
+  padding:20px;
+    background-color:#ededed;
+    border-radius:10px;  
+}
+.api-options h2 {text-align:left;}
+.api-options p {text-align:left;}
+.description {text-align:left; display:block; min-height:100px}
+
+#liveChat_float {
+    position: fixed;
+    bottom: 0;
+    right: 5%;
+    margin-bottom: -5px;
+    z-index: 1000;
+}
+
+/* Base class */
+.docs-example {
+  position: relative;
+  margin: 15px 0;
+  padding: 39px 19px 14px;
+  *padding-top: 19px;
+  background-color: #fff;
+  border: 1px solid #ddd;
+  -webkit-border-radius: 4px;
+     -moz-border-radius: 4px;
+          border-radius: 4px;
+}
+
+.docs-example .heading {
+    position: absolute;
+  top: -1px;
+  left: 0px;
+  padding: 3px 7px;
+  font-size: 12px;
+  font-weight: bold;
+  background-color: #f5f5f5;
+  border: 1px solid #ddd;
+  color: #9da0a4;
+  border-left:none;
+  -webkit-border-radius: 4px 0 4px 0;
+     -moz-border-radius: 4px 0 4px 0;
+          border-radius: 4px 0 4px 0;
+}
+/* Remove spacing between an example and it's code */
+.docs-example + .prettyprint {
+  margin-top: -20px;
+  padding-top: 15px;
+}
