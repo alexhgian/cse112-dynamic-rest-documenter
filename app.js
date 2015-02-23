@@ -5,7 +5,7 @@ app.controller('MainCtrl', function($scope, $http) {
    $scope.message = "Hello";
 
    $scope.pages = ["businessPage", "employeePage", "checkinPage", "formsPage", "confirmPage", "authPage"];
-   $scope.pageSelect = $scope.pages[1]; //Page at load, good for debugging
+   //$scope.pageSelect = $scope.pages[1]; //Page at load, good for debugging
 });
 
 //Business API
