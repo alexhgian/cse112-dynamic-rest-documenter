@@ -1,2 +1,2 @@
 #Dynamic REST API Generator
-alexhgian.github.io/cse112-dynamic-rest-documenter
+[Demo Here](alexhgian.github.io/cse112-dynamic-rest-documenter)
