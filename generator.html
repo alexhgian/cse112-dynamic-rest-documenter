@@ -1,119 +1,134 @@
 <h2>JSON Generator</h2>
+<hr>
 <div>
-   <form class="form-horizontal">
-      <div class="form-group">
-         <label class="col-sm-2 control-label">Header</label>
-         <div class="col-sm-10">
-            <input type="method" class="form-control" placeholder="header" ng-model="resource[0].header">
-         </div>
-      </div>
-      <div class="form-group">
-         <label class="col-sm-2 control-label">Method</label>
-         <div class="col-sm-4">
-            <input type="method" class="form-control" placeholder="method" ng-model="resource[0].method">
-         </div>
-         <label for="inputEmail3" class="col-sm-2 control-label">URI</label>
-         <div class="col-sm-4">
-            <input type="uri" class="form-control" placeholder="uri" ng-model="resource[0].uri">
-         </div>
-      </div>
-      <div class="form-group">
-         <label for="inputEmail3" class="col-sm-2 control-label">Request</label>
-         <div class="col-sm-10">
-            <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource[0].request"></textarea>
-         </div>
-      </div>
-      <div class="form-group">
-         <label for="inputEmail3" class="col-sm-2 control-label">Request Parameters</label>
-         <div class="col-sm-10">
-            <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource[0].reqParam"></textarea>
-         </div>
-      </div>
-            <div class="form-group">
-         <label for="inputEmail3" class="col-sm-2 control-label">Response</label>
-         <div class="col-sm-10">
-            <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource[0].response"></textarea>
-         </div>
-      </div>
-      <div class="form-group">
-         <label for="inputEmail3" class="col-sm-2 control-label">Response Parameters</label>
-         <div class="col-sm-10">
-            <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource[0].resParam"></textarea>
-         </div>
-      </div>
+  <form class="form-horizontal">
 
-   </form>
+
+
+
+
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Header</label>
+      <div class="col-sm-10">
+        <input type="method" class="form-control" placeholder="header" ng-model="resource.NewResourceName[0].header">
+      </div>
+    </div>
+    <div class="form-group">
+      <label class="col-sm-2 control-label">Method</label>
+      <div class="col-sm-4">
+        <input type="method" class="form-control" placeholder="method" ng-model="resource.NewResourceName[0].method">
+      </div>
+      <label for="inputEmail3" class="col-sm-2 control-label">URI</label>
+      <div class="col-sm-4">
+        <input type="uri" class="form-control" placeholder="uri" ng-model="resource.NewResourceName[0].uri">
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Request</label>
+      <div class="col-sm-10">
+        <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource.NewResourceName[0].request"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Request Parameters</label>
+      <div class="col-sm-10">
+        <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource.NewResourceName[0].reqParam"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Response</label>
+      <div class="col-sm-10">
+        <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource.NewResourceName[0].response"></textarea>
+      </div>
+    </div>
+    <div class="form-group">
+      <label for="inputEmail3" class="col-sm-2 control-label">Response Parameters</label>
+      <div class="col-sm-10">
+        <textarea json-text rows="4" type="method" class="form-control" placeholder="json" ng-model="resource.NewResourceName[0].resParam"></textarea>
+      </div>
+    </div>
+
+  </form>
 </div>
 
 
 <div class="panel panel-default">
-   <div class="panel-heading">
-      <h4>Document Preview</h4>
-   </div>
-   <div class="panel-body">
-      <div ng-repeat="res in resource">
-         <h2>{{res.header}}</h2>
-         <hr/>
-         <p>{{res.description}}</p>
+  <div class="panel-heading">
+    <h4>Document Preview</h4>
+  </div>
+  <div class="panel-body">
+    <div ng-repeat="res in resource.NewResourceName">
+      <h2>{{res.header}}</h2>
+      <hr/>
+      <p>{{res.description}}</p>
 
-         <div class="url"><span class="method" ng-class="res.method">{{res.method}}</span>{{res.uri}}</div>
+      <div class="url"><span class="method" ng-class="res.method">{{res.method}}</span>{{res.uri}}</div>
 
-         <span class="pre_header resp">Example Request</span>
-         <pre>{{res.request | json}}</pre>
+      <span class="pre_header resp">Example Request</span>
+      <pre>{{res.request | json}}</pre>
 
-         <span class="pre_header resp">REQUIRED REQUEST PARAMETERS</span>
-         <table class="table table-bordered">
-            <thead>
-               <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th>Description</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr ng-repeat="param in res.reqParam">
-                  <td><code>{{param[0]}}</code>
-                  </td>
-                  <td>{{param[1]}}</td>
-                  <td>{{param[2]}}</td>
-               </tr>
-            </tbody>
-         </table>
+      <span class="pre_header resp">REQUIRED REQUEST PARAMETERS</span>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="param in res.reqParam">
+            <td><code>{{param[0]}}</code>
+            </td>
+            <td>{{param[1]}}</td>
+            <td>{{param[2]}}</td>
+          </tr>
+        </tbody>
+      </table>
 
-         <span class="pre_header resp">EXAMPLE RESPONSE</span>
-         <pre>{{res.response | json}}</pre>
+      <span class="pre_header resp">EXAMPLE RESPONSE</span>
+      <pre>{{res.response | json}}</pre>
 
 
-         <span class="pre_header resp">Response PARAMETERS</span>
-         <table class="table table-bordered">
-            <thead>
-               <tr>
-                  <th>Name</th>
-                  <th>Type</th>
-                  <th>Description</th>
-               </tr>
-            </thead>
-            <tbody>
-               <tr ng-repeat="param in res.resParam">
-                  <td><code>{{param[0]}}</code>
-                  </td>
-                  <td>{{param[1]}}</td>
-                  <td>{{param[2]}}</td>
-               </tr>
-            </tbody>
-         </table>
-         <br>
-      </div>
+      <span class="pre_header resp">Response PARAMETERS</span>
+      <table class="table table-bordered">
+        <thead>
+          <tr>
+            <th>Name</th>
+            <th>Type</th>
+            <th>Description</th>
+          </tr>
+        </thead>
+        <tbody>
+          <tr ng-repeat="param in res.resParam">
+            <td><code>{{param[0]}}</code>
+            </td>
+            <td>{{param[1]}}</td>
+            <td>{{param[2]}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <br>
+    </div>
 
-   </div>
+  </div>
 </div>
 
 <div class="panel panel-default">
-   <div class="panel-heading">
-      <h4>JSON Preview</h4>
-   </div>
-   <div class="panel-body">
-      <pre ng-bind="resource | json"></pre>
-   </div>
+  <div class="panel-heading">
+    <h4>JSON Preview</h4>
+  </div>
+  <div class="panel-body">
+    <pre ng-bind="resource | json"></pre>
+    <a href="http://myjson.com/">Store JSON here to load.</a>
+  </div>
 </div>
 
+<form class="form-horizontal" role="form">
+  <div class="form-group">
+    <label for="email">Load Documentation from JSON:</label>
+    <input type="text" class="form-control" placeholder="mydata.json" ng-model='jsonUrl'>
+    <button type="submit" class="btn btn-default" ng-click="getData(jsonUrl)">Submit</button>
+  </div>
+
+</form>

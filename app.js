@@ -39,39 +39,49 @@ app.directive('jsonText', function() {
 });
 
 app.controller('MainCtrl', function($scope, $http) {
-  $http.get('api.json').success(function(data){
-    $scope.resources = data;
-  });
-  
+
+
+  $scope.getData = function(jsonUrl) {
+    $http.get(jsonUrl).success(function(data) {
+      $scope.resources = data;
+    });
+  }
+  $scope.getData('api.json');
+
   $scope.setPage = function(index) {
     $scope.pageSelect = index;
   }
   $scope.message = "Hello";
   $scope.pages = ["businessPage", "employeePage", "checkinPage", "formsPage", "confirmPage", "authPage", "genPage"];
   $scope.pageSelect = 0; //Page at load, good for debugging
-  
-  
+
+
 });
 
 
 //Generator
 app.controller('genCtrl', function($scope, $http) {
-  $scope.resource = [{
-    header: "Get Data from generator",
-    method: "GET",
-    uri: "/api/generator/:id",
-    request: {
-      "key": "value"
-    },
-    reqParam: [
-      ["var", "type", "description"]
-    ],
-    response: {
-      "key": "value"
-    },
-    resParam: [
-      ["var", "type", "description"]
-    ]
-  }];
+  $scope.jsonUrl = "https://api.myjson.com/bins/3xeq7";
+  $scope.resource = {
+    "NewResourceName": [{
+      "header": "Get a user",
+      "description": "",
+      "method": "GET",
+      "uri": "/api/user/:id",
+      "request": null,
+      "reqParam": [
+        ["id", "String", "user id"]
+      ],
+      "response": {
+        "first": "Alex",
+        "last": "Gian",
+      },
+      "resParam": [
+        ["first", "String", "first name"],
+        ["last", "String", "last name"]
+      ]
+    }]
+
+  };
 
 });
