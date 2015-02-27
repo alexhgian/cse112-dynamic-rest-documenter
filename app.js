@@ -72,7 +72,7 @@ app.controller('MainCtrl', function($scope, $http) {
    };
    $scope.message = "Hello";
    $scope.pages = ["businessPage", "employeePage", "checkinPage", "formsPage", "confirmPage", "authPage", "genPage"];
-   $scope.pageSelect = 0; //Page at load, good for debugging
+   $scope.pageSelect = -1; //Page at load, good for debugging
 
 
 });
