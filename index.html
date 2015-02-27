@@ -22,7 +22,7 @@
             <a href="#" ng-click="setPage(-1)"><strong>Generator</strong></a>
           </li>
           <li role="presentation" ng-repeat="(key, value) in resources">
-            <a href="#" ng-click="setPage($index)"><strong>{{key}}</strong></a>
+            <a href="#" ng-click="setPage($index)"><strong>{{value.name}}</strong></a>
           </li>
         </ul>
       </div>
@@ -31,13 +31,14 @@
         <div ng-show="pageSelect==-1" class="active">
           <div ng-controller="genCtrl" ng-include="'generator.html'"></div>
         </div>
-        <div ng-repeat="(key, resource) in resources">
+        <!-- Generate each pages data using the each api's data. -->
+        <div ng-repeat="(key, res) in resources">
           <div ng-show="pageSelect==$index">
-            <div ng-include="'template.html'"></div>
+            <div ng-init="resource=res.data" ng-include="'template.html'"></div>
           </div>
         </div>
       </div>
-
+      
     </div>
   </div>
   <!-- Libraries -->
