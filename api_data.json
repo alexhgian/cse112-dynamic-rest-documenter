@@ -1,212 +1,437 @@
 {
-	"api" : [{
-			"name" : "Authenticate",
-			"data" : []
-		}, {
-			"name" : "Employee",
-			"data" : [{
-					"header" : "View Account",
-					"method" : "GET",
-					"uri" : "/api/office/:id",
-					"request" : null,
-					"reqParam" : [["id",
-							"integer",
-							"business id"]],
-					"response" : {
-						"fields" : [{
-								"email" : "johndoe@johndoe.com",
-								"fname" : "John",
-								"lname" : "Doe",
-								"password" : "hello123",
-								"registerToken" : "jd-123"
-							}
-						]
-					},
-					"resParam" : [["fields",
-							"array",
-							"array of fieldObjects (See DB Schema)"]]
-				}, {
-					"header" : "Update/Modify Account",
-					"method" : "PUT",
-					"uri" : "/api/office/:id",
-					"request" : {
-						"fields" : [{
-								"email" : "johndoe@johndoe.com",
-								"fname" : "John",
-								"lname" : "Doe",
-								"password" : "hello123",
-								"registerToken" : "jd-123"
-							}
-						]
-					},
-					"reqParam" : [["fields",
-							"array",
-							"array of fieldObjects (See DB Schema)"]],
-					"response" : "200(OK)",
-					"resParam" : null
-				}, {
-					"header" : "Create Account",
-					"method" : "POST",
-					"uri" : "/api/office/:id",
-					"request" : {
-						"fields" : [{
-								"email" : "johndoe@johndoe.com",
-								"fname" : "John",
-								"lname" : "Doe",
-								"password" : "hello123",
-								"registerToken" : "jd-123"
-							}
-						]
-					},
-					"reqParam" : [["fields",
-							"array",
-							"array of fieldObjects (See DB Schema)"]],
-					"response" : "201(CREATED)",
-					"resParam" : null
-				}, {
-					"header" : "Delete Account",
-					"method" : "DELETE",
-					"uri" : "/api/",
-					"request" : {},
-					"reqParam" : [],
-					"response" : "200(OK)",
-					"resParam" : []
-				}
-			]
-		}, {
-			"name" : "Form",
-			"data" : [{
-					"header" : "Request a form",
-					"description" : "",
-					"method" : "GET",
-					"uri" : "/api/office/:bid/form/",
-					"request" : null,
-					"reqParam" : [
-						[
-							"bid",
-							"String",
-							"Business Id"
-						]
-					],
-					"response" : {
-						"fields" : [
-							"fieldObject"
-						]
-					},
-					"resParam" : [
-						[
-							"fields",
-							"String",
-							"An array of fieldObjects represented the form associated with the business' form"
-						]
-					]
-				}, {
-					"header" : "Send form response",
-					"description" : "",
-					"method" : "POST",
-					"uri" : "/api/office/:bid/formResponse/:fid",
-					"request" : {
-						"answers" : [{
-								"label" : "Name",
-								"response" : "John Doe"
-							}, {
-								"label" : "Gender",
-								"response" : "Female"
-							}, {
-								"label" : "Email",
-								"response" : "john.doe@example.com"
-							}, {
-								"label" : "Favorite Color",
-								"response" : "Blue"
-							}
-						]
-					},
-					"reqParam" : [
-						[
-							"label",
-							"String",
-							"Label in a fieldObject"
-						],
-						[
-							"response",
-							"String",
-							"user response in a fieldObject"
-						],
-						[
-							"bid",
-							"ObjectId",
-							"Business ID"
-						]
-					],
-					"response" : "200 OK",
-					"resParam" : []
-				}, {
-					"header" : "Modify form response",
-					"description" : "",
-					"method" : "PUT",
-					"uri" : "/api/office/:bid/formResponse/:fid",
-					"request" : {
-						"answers" : [{
-								"label" : "Name",
-								"response" : "John Doe The Great"
-							}
-						]
-					},
-					"reqParam" : [
-						[
-							"answers",
-							"Array",
-							"answerObject array"
-						],
-						[
-							"label",
-							"String",
-							"Field Label"
-						],
-						[
-							"response",
-							"String",
-							"Response for the field"
-						]
-					],
-					"response" : {
-						"employee" : 9585938934,
-						" appointment" : 438398498294,
-						" answers" : [{
-								" label" : "Name",
-								"response" : "John Doe The Great"
-							}, {
-								"label" : "Gender",
-								"response" : "Female"
-							}, {
-								"label" : "Email",
-								"response" : "john.doe@example.com"
-							}, {
-								"label" : "Favorite Color",
-								"response" : "Blue"
-							}
-						]
-					},
-					"resParam" : [
-						[
-							"employee",
-							"ObjectId",
-							213215656
-						],
-						[
-							"appointment",
-							"ObjectID",
-							315416488
-						]
-					]
-				}
-			]
-		}, {
-			"name" : "CheckIn",
-			"data" : []
-		}, {
-			"name" : "Confirmation",
-			"data" : []
-		}
-	]
+  "api": [
+    {
+      "name": "Authenticate",
+      "data": [
+        {
+          "header": "Get Authenticated",
+          "description": "",
+          "method": "GET",
+          "uri": "/api/auth/",
+          "request": {
+            "Authorization": "Basic YWxleDpnaWFu"
+          },
+          "reqParam": [
+            [
+              "Authorization",
+              "String",
+              "Base64 Encoded String for Authentication"
+            ]
+          ],
+          "response": {
+            "api_token": "MjEzMXNkMWZhc2RmMjMxOmRzZ"
+          },
+          "resParam": [
+            [
+              "api_token",
+              "String",
+              "Used to Authenticate calls"
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Employee",
+      "data": [
+        {
+          "header": "View Account",
+          "method": "GET",
+          "uri": "/api/office/:id",
+          "request": null,
+          "reqParam": [
+            [
+              "id",
+              "integer",
+              "business id"
+            ]
+          ],
+          "response": {
+            "fields": [
+              {
+                "email": "johndoe@johndoe.com",
+                "fname": "John",
+                "lname": "Doe",
+                "password": "hello123",
+                "registerToken": "jd-123"
+              }
+            ]
+          },
+          "resParam": [
+            [
+              "fields",
+              "array",
+              "array of fieldObjects (See DB Schema)"
+            ]
+          ]
+        },
+        {
+          "header": "Update/Modify Account",
+          "method": "PUT",
+          "uri": "/api/office/:id",
+          "request": {
+            "fields": [
+              {
+                "email": "johndoe@johndoe.com",
+                "fname": "John",
+                "lname": "Doe",
+                "password": "hello123",
+                "registerToken": "jd-123"
+              }
+            ]
+          },
+          "reqParam": [
+            [
+              "fields",
+              "array",
+              "array of fieldObjects (See DB Schema)"
+            ]
+          ],
+          "response": "200(OK)",
+          "resParam": null
+        },
+        {
+          "header": "Create Account",
+          "method": "POST",
+          "uri": "/api/office/:id",
+          "request": {
+            "fields": [
+              {
+                "email": "johndoe@johndoe.com",
+                "fname": "John",
+                "lname": "Doe",
+                "password": "hello123",
+                "registerToken": "jd-123"
+              }
+            ]
+          },
+          "reqParam": [
+            [
+              "fields",
+              "array",
+              "array of fieldObjects (See DB Schema)"
+            ]
+          ],
+          "response": "201(CREATED)",
+          "resParam": null
+        },
+        {
+          "header": "Delete Account",
+          "method": "DELETE",
+          "uri": "/api/",
+          "request": {
+          },
+          "reqParam": [
+
+          ],
+          "response": "200(OK)",
+          "resParam": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Form",
+      "data": [
+        {
+          "header": "Request a form",
+          "description": "",
+          "method": "GET",
+          "uri": "/api/office/:bid/form/",
+          "request": null,
+          "reqParam": [
+            [
+              "bid",
+              "String",
+              "Business Id"
+            ]
+          ],
+          "response": {
+            "fields": [
+              "fieldObject"
+            ]
+          },
+          "resParam": [
+            [
+              "fields",
+              "String",
+              "An array of fieldObjects represented the form associated with the business' form"
+            ]
+          ]
+        },
+        {
+          "header": "Send form response",
+          "description": "",
+          "method": "POST",
+          "uri": "/api/office/:bid/formResponse/:fid",
+          "request": {
+            "answers": [
+              {
+                "label": "Name",
+                "response": "John Doe"
+              },
+              {
+                "label": "Gender",
+                "response": "Female"
+              },
+              {
+                "label": "Email",
+                "response": "john.doe@example.com"
+              },
+              {
+                "label": "Favorite Color",
+                "response": "Blue"
+              }
+            ]
+          },
+          "reqParam": [
+            [
+              "label",
+              "String",
+              "Label in a fieldObject"
+            ],
+            [
+              "response",
+              "String",
+              "user response in a fieldObject"
+            ],
+            [
+              "bid",
+              "ObjectId",
+              "Business ID"
+            ]
+          ],
+          "response": "200 OK",
+          "resParam": [
+
+          ]
+        },
+        {
+          "header": "Modify form response",
+          "description": "",
+          "method": "PUT",
+          "uri": "/api/office/:bid/formResponse/:fid",
+          "request": {
+            "answers": [
+              {
+                "label": "Name",
+                "response": "John Doe The Great"
+              }
+            ]
+          },
+          "reqParam": [
+            [
+              "answers",
+              "Array",
+              "answerObject array"
+            ],
+            [
+              "label",
+              "String",
+              "Field Label"
+            ],
+            [
+              "response",
+              "String",
+              "Response for the field"
+            ]
+          ],
+          "response": {
+            "employee": 9585938934,
+            " appointment": 438398498294,
+            " answers": [
+              {
+                " label": "Name",
+                "response": "John Doe The Great"
+              },
+              {
+                "label": "Gender",
+                "response": "Female"
+              },
+              {
+                "label": "Email",
+                "response": "john.doe@example.com"
+              },
+              {
+                "label": "Favorite Color",
+                "response": "Blue"
+              }
+            ]
+          },
+          "resParam": [
+            [
+              "employee",
+              "ObjectId",
+              213215656
+            ],
+            [
+              "appointment",
+              "ObjectID",
+              315416488
+            ]
+          ]
+        }
+      ]
+    },
+    {
+      "name": "CheckIn",
+      "data": [
+        {
+          "header": "Submit Identifying Details",
+          "description": "",
+          "method": "POST",
+          "uri": "/api/office/:bid/appointments",
+          "request": {
+            "fields": [
+              {
+                "fname": "John",
+                "lname": "Doe",
+                "dob": "05/13/1965"
+              }
+            ]
+          },
+          "reqParam": [
+            [
+              "fields",
+              "Array",
+              "array containing idenity information. (Different from fieldObject!)"
+            ],
+            [
+              "fname",
+              "String",
+              "first name"
+            ],
+            [
+              "lname",
+              "String",
+              "last name"
+            ],
+            [
+              "dob",
+              "String",
+              "date of birth"
+            ],
+            [
+              "bid",
+              "ObjectId",
+              "Business ID"
+            ]
+          ],
+          "response": "201(CREATED)",
+          "resParam": null
+        },
+        {
+          "header": "Confirm Identity",
+          "description": "",
+          "method": "GET",
+          "uri": "/api/office/:bid/appointments?fname=John&lname=\"Doe\"&dob= \"05/13/1965\"",
+          "request": null,
+          "reqParam": [
+            [
+              "fields",
+              "Array",
+              "array containing idenity information. (Different from fieldObject!)"
+            ],
+            [
+              "fname",
+              "String",
+              "first name"
+            ],
+            [
+              "lname",
+              "String",
+              "last name"
+            ],
+            [
+              "dob",
+              "String",
+              "date of birth"
+            ],
+            [
+              "bid",
+              "ObjectId",
+              "Business ID"
+            ]
+          ],
+          "response": {
+            "fields": [
+              "fieldObject"
+            ]
+          },
+          "resParam": [
+            [
+              "fields",
+              "Array",
+              "first name"
+            ],
+            [
+              "fieldObject",
+              "fieldObject",
+              "form fieldObject "
+            ]
+          ]
+        },
+        {
+          "header": "Sign Disclosure Agreements",
+          "description": "",
+          "method": "POST",
+          "uri": "/api/office/:bid/appointments?fname=John&lname=\"Doe\"&dob= \"05/13/1965\"",
+          "request": null,
+          "reqParam": [
+
+          ],
+          "response": null,
+          "resParam": [
+
+          ]
+        }
+      ]
+    },
+    {
+      "name": "Confirmation",
+      "data": [
+        {
+          "header": "Retrieve Appointment Information",
+          "description": "",
+          "method": "GET",
+          "uri": "/api/office/appointment/:id/",
+          "request": null,
+          "reqParam": [
+            [
+              "id",
+              "String",
+              "Appointment Id"
+            ]
+          ],
+          "response": {
+            "appointment": [
+              "appointmentObject"
+            ]
+          },
+          "resParam": [
+            [
+              "appointment",
+              "Array",
+              "Array of appointmentObjects (See DB Schema for Appointment"
+            ]
+          ]
+        },
+        {
+          "header": "Reject Appointment",
+          "description": "",
+          "method": "PUT",
+          "uri": "/api/office/appointment/:id/",
+          "request": null,
+          "reqParam": [
+
+          ],
+          "response": null,
+          "resParam": [
+
+          ]
+        }
+      ]
+    }
+  ]
 }
