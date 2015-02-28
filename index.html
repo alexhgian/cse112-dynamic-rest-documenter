@@ -35,7 +35,7 @@
         <div ng-repeat="(key, res) in resources">
        
           <div ng-show="pageSelect==$index">
-            <h1>{{res.name}}</h1>
+            <h1><strong>{{res.name}}</strong></h1>
             <div ng-init="resource=res.data" ng-include="'template.html'"></div>
           </div>
         </div>
