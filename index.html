@@ -33,6 +33,7 @@
         </div>
         <!-- Generate each pages data using the each api's data. -->
         <div ng-repeat="(key, res) in resources">
+          <h1>{{res.name}}</h1>
           <div ng-show="pageSelect==$index">
             <div ng-init="resource=res.data" ng-include="'template.html'"></div>
           </div>
