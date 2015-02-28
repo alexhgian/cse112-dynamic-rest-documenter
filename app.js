@@ -80,7 +80,7 @@ app.controller('MainCtrl', function($scope, $http) {
 
 //Generator
 app.controller('genCtrl', function($scope, $http) {
-   $scope.jsonUrl = "https://api.myjson.com/bins/3xeq7";
+   $scope.jsonUrl = "https://api.myjson.com/bins/2b06j";
    $scope.api = {
       "name": "New API",
       "data": [{
