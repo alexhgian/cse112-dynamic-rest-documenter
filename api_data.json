@@ -276,7 +276,7 @@
           "header": "Sign Disclosure Agreements",
           "description": "",
           "method": "POST",
-          "uri": "/api/office/:bid/appointments?fname=John&lname=\"Doe\"&dob=\"05/13/1965\"",
+          "uri": "/api/office/:bid/appointments/:id",
           "request": null,
           "reqParam": [
 
