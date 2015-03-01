@@ -416,20 +416,6 @@
               "Array of appointmentObjects (See DB Schema for Appointment"
             ]
           ]
-        },
-        {
-          "header": "Reject Appointment",
-          "description": "",
-          "method": "PUT",
-          "uri": "/api/office/appointment/:id/",
-          "request": null,
-          "reqParam": [
-
-          ],
-          "response": null,
-          "resParam": [
-
-          ]
         }
       ]
     }
