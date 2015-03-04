@@ -181,7 +181,7 @@
           "header": "Submit Identifying Details[NOT IMPELEMENTED]",
           "description": "",
           "method": "POST",
-          "uri": "/api/office/:bid/appointments",
+          "uri": "/api/m/appointments",
           "request": {
             "fields": [
               {
