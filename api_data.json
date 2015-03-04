@@ -64,7 +64,7 @@
           "header": "Send form response",
           "description": "",
           "method": "POST",
-          "uri": "/api/m/formResponse/",
+          "uri": "/api/m/form/formResponse/",
           "request": {
             "answers": [
               {
