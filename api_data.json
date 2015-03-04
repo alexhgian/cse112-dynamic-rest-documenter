@@ -38,13 +38,13 @@
           "header": "Request a form",
           "description": "",
           "method": "GET",
-          "uri": "/api/office/:bid/form/",
+          "uri": "/api/m/form/:id",
           "request": null,
           "reqParam": [
             [
-              "bid",
-              "String",
-              "Business Id"
+              "id",
+              "ObjectId",
+              "Form Id"
             ]
           ],
           "response": {
@@ -64,7 +64,7 @@
           "header": "Send form response",
           "description": "",
           "method": "POST",
-          "uri": "/api/office/:bid/formResponse/:fid",
+          "uri": "/api/m/formResponse/",
           "request": {
             "answers": [
               {
@@ -108,10 +108,10 @@
           ]
         },
         {
-          "header": "Modify form response",
+          "header": "Modify form response[NOT IMPLEMENTED]",
           "description": "",
           "method": "PUT",
-          "uri": "/api/office/:bid/formResponse/:fid",
+          "uri": "/api/m/form/:fid",
           "request": {
             "answers": [
               {
@@ -178,7 +178,7 @@
       "name": "CheckIn",
       "data": [
         {
-          "header": "Submit Identifying Details",
+          "header": "Submit Identifying Details[NOT IMPELEMENTED]",
           "description": "",
           "method": "POST",
           "uri": "/api/office/:bid/appointments",
@@ -225,7 +225,7 @@
           "header": "Confirm Identity",
           "description": "",
           "method": "GET",
-          "uri": "/api/office/:bid/appointments?fname=John&lname=\"Doe\"&dob=\"05/13/1965\"",
+          "uri": "/api/m/appointment?fname=John&lname=\"Doe\"&dob=\"05/13/1965\"",
           "request": null,
           "reqParam": [
             [
@@ -273,10 +273,10 @@
           ]
         },
         {
-          "header": "Sign Disclosure Agreements",
+          "header": "Sign Disclosure Agreements(Change Appointment State)",
           "description": "",
-          "method": "POST",
-          "uri": "/api/office/:bid/appointments/:id",
+          "method": "PUT",
+          "uri": "/api/m/appointments/:id/state",
           "request": null,
           "reqParam": [
 
@@ -295,7 +295,7 @@
           "header": "Retrieve Appointment Information",
           "description": "",
           "method": "GET",
-          "uri": "/api/office/appointment/:id/",
+          "uri": "/api/m/appointment/:id",
           "request": null,
           "reqParam": [
             [
