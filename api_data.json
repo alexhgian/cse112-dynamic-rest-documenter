@@ -28,7 +28,38 @@
               "Used to Authenticate calls"
             ]
           ]
-        }
+        },{
+      "header": "Test Auth",
+      "description": "",
+      "method": "POST",
+      "uri": "/api/authTest/",
+      "request": {
+        "Authorization": "Basic 3u4h123k4h21k3h4"
+      },
+      "reqParam": [
+        [
+          "authorization",
+          "String",
+          "This is actually the api_token with the Basic appended to it"
+        ]
+      ],
+      "response": {
+        "first": "Alex",
+        "last": "Gian"
+      },
+      "resParam": [
+        [
+          "first",
+          "String",
+          "first name"
+        ],
+        [
+          "last",
+          "String",
+          "last name"
+        ]
+      ]
+    }
       ]
     },
     {
