@@ -43,22 +43,8 @@
           "This is actually the api_token with the Basic appended to it"
         ]
       ],
-      "response": {
-        "first": "Alex",
-        "last": "Gian"
-      },
-      "resParam": [
-        [
-          "first",
-          "String",
-          "first name"
-        ],
-        [
-          "last",
-          "String",
-          "last name"
-        ]
-      ]
+      "response": {},
+      "resParam": []
     }
       ]
     },
