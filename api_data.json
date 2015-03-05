@@ -6,7 +6,7 @@
         {
           "header": "Get Authenticated",
           "description": "",
-          "method": "GET",
+          "method": "POST",
           "uri": "/api/auth/",
           "request": {
             "Authorization": "Basic YWxleDpnaWFu"
