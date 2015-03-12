@@ -175,14 +175,15 @@
       </div>
       <div class="panel-body">
          <pre ng-bind="api | json"></pre>
-         <a href="http://myjson.com/">Store JSON here to load.</a>
-         <button type="submit" class="btn btn-default" ng-click="storeJson(api)">Update Current JSON</button>
+         
+         <button type="submit" class="btn btn-default" ng-click="storeJson(api)">Save/Preview Current JSON</button>
       </div>
    </div>
 
    <form class="form-horizontal" role="form">
       <div class="form-group">
-         <label for="email">Load Documentation from JSON:</label>
+      <a href="http://myjson.com/">(Save JSON here to load) </a>
+         <label for="email">Load External JSON:</label>
          <input type="text" class="form-control" placeholder="mydata.json" ng-model='jsonUrl'>
          <button type="submit" class="btn btn-default" ng-click="getData(jsonUrl)">Submit</button>
       </div>

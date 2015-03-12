@@ -10,7 +10,7 @@
 <body ng-controller="MainCtrl">
   <div class="container">
     <div class="header">
-      <h1>RoboBetty REST API Documentation</h1>
+      <h1>RoboBetty REST API Documentation <small>(V1.0, last updated: 3/4/2015)</small></h1>
     </div>
 
     <br>
@@ -18,11 +18,12 @@
     <div class="row">
       <div class="col-sm-2">
         <ul class="nav nav-pills nav-stacked">
-          <li role="presentation" class="active">
-            <a href="#" ng-click="setPage(-1)"><strong>Generator</strong></a>
-          </li>
           <li role="presentation" ng-repeat="(key, value) in resources">
             <a href="#" ng-click="setPage($index)"><strong>{{value.name}}</strong></a>
+          </li>
+          
+          <li role="presentation" class="active">
+            <a href="#" ng-click="setPage(-1)"><strong>Generator</strong></a>
           </li>
         </ul>
       </div>
@@ -33,7 +34,9 @@
         </div>
         <!-- Generate each pages data using the each api's data. -->
         <div ng-repeat="(key, res) in resources">
+       
           <div ng-show="pageSelect==$index">
+            <h1><strong>{{res.name}}</strong></h1>
             <div ng-init="resource=res.data" ng-include="'template.html'"></div>
           </div>
         </div>
